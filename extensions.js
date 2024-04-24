@@ -12,7 +12,7 @@ export const FormExtension = {
               font-size: 0.8em;
               color: #888;
             }
-            input[type="text"], input[type="email"], input[type="tel"] {
+            input[type="text"], input[type="email"], input[type="tel"], input[type="checkbox"] {
               width: 100%;
               border: none;
               border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
@@ -46,6 +46,11 @@ export const FormExtension = {
           <label for="phone">Phone Number</label>
           <input type="tel" class="phone" name="phone" required pattern="\\d+" title="Invalid phone number, please enter only numbers"><br><br>
 
+          <label for="marketing_consent">
+            <input type="checkbox" name="marketing_consent" checked="checked">
+            Can we send you call/email you discounts?
+          </label><br><br>
+
           <input type="submit" class="submit" value="Submit">
         `
 
@@ -55,6 +60,7 @@ export const FormExtension = {
       const name = formContainer.querySelector('.name')
       const email = formContainer.querySelector('.email')
       const phone = formContainer.querySelector('.phone')
+      const marketingConsent = formContainer.querySelector('[name="marketing_consent"]').checked
 
       if (
         !name.checkValidity() ||
@@ -71,7 +77,7 @@ export const FormExtension = {
 
       window.voiceflow.chat.interact({
         type: 'complete',
-        payload: { name: name.value, email: email.value, phone: phone.value },
+        payload: { name: name.value, email: email.value, phone: phone.value, marketing_consent: marketingConsent },
       })
     })
 
