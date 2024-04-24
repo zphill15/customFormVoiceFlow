@@ -47,8 +47,8 @@ export const FormExtension = {
           <input type="tel" class="phone" name="phone" required pattern="\\d+" title="Invalid phone number, please enter only numbers"><br><br>
 
           <label for="marketing_consent">
+            Can we call/email you discounts?
             <input type="checkbox" name="marketing_consent" checked="checked">
-            Can we send you call/email you discounts?
           </label><br><br>
 
           <input type="submit" class="submit" value="Submit">
